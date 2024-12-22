@@ -26,7 +26,7 @@ export default {
         foreground: "hsl(var(--foreground))",
         soft: {
           black: "#1A1A1A",
-          green: "#E8F3D6",
+          green: "#D8E8C1", // Made slightly greener
           yellow: "#FFE5A0",
         },
         primary: {

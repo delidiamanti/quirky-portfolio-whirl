@@ -63,12 +63,7 @@ const Contact = () => {
               <p>
                 <strong>Email:</strong>
                 <br />
-                info@delidiamanti.gr
-              </p>
-              <p>
-                <strong>Working Hours:</strong>
-                <br />
-                Monday - Friday: 9:00 AM - 6:00 PM
+                hello@delidiamanti.gr
               </p>
             </div>
           </motion.div>
