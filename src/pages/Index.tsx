@@ -26,7 +26,28 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated Rhombus */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute w-96 h-96 bg-soft-yellow/20 rounded-lg"
+          style={{ rotate: 45 }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          initial={{ top: "20%", right: "10%" }}
+        />
+      </div>
+
+      {/* Gradient Background */}
+      <div className="fixed inset-0 bg-gradient-to-b from-soft-green/30 to-white pointer-events-none" />
+
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-soft-green/10 to-transparent" />
         <div className="container mx-auto px-4 text-center z-10">
@@ -61,7 +82,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white/80 backdrop-blur-sm relative">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center animate-on-scroll opacity-0">
             <h2 className="text-3xl md:text-4xl font-serif text-soft-black mb-6">
@@ -76,13 +97,13 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-soft-green/10">
+      <section className="py-20 bg-soft-green/10 backdrop-blur-sm relative">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="animate-on-scroll opacity-0 bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="animate-on-scroll opacity-0 bg-white/80 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
                 <h3 className="text-xl font-serif text-soft-black mb-4">
                   {i === 1
@@ -104,7 +125,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white/80 backdrop-blur-sm relative">
         <div className="container mx-auto px-4 text-center">
           <div className="animate-on-scroll opacity-0">
             <h2 className="text-3xl md:text-4xl font-serif text-soft-black mb-8">
