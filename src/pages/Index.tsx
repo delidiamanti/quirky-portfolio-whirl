@@ -26,7 +26,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="relative overflow-hidden">
       {/* Animated Rhombus */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -45,8 +45,8 @@ const Index = () => {
         />
       </div>
 
-      {/* Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-to-b from-soft-green/30 to-white pointer-events-none" />
+      {/* Gradient Background - Modified to not affect footer */}
+      <div className="absolute top-0 left-0 right-0 h-[calc(100%-400px)] bg-gradient-to-b from-soft-green/30 to-white pointer-events-none" />
 
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-soft-green/10 to-transparent" />
