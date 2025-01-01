@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/utils/translations";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,10 +17,9 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
     toast({
-      title: "Message Sent",
-      description: "Thank you for your message. We'll get back to you soon!",
+      title: t.contact.success,
+      description: "",
     });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -37,11 +41,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-serif text-soft-black mb-6">
-            Get in Touch
+            {t.contact.title}
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Let's discuss your next project. Whether it's a home renovation or a
-            hotel design, we're here to help bring your vision to life.
+            {t.contact.description}
           </p>
         </motion.div>
 
@@ -52,18 +55,18 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-2xl font-serif text-soft-black mb-6">
-              Contact Information
+              {t.contact.contactInfo.title}
             </h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                <strong>Location:</strong>
+                <strong>{t.contact.contactInfo.location}:</strong>
                 <br />
                 Santorini, Greece
               </p>
               <p>
-                <strong>Email:</strong>
+                <strong>{t.contact.contactInfo.email}:</strong>
                 <br />
-                hello@delidiamanti.gr
+                info@delidiamanti.gr
               </p>
             </div>
           </motion.div>
@@ -79,7 +82,7 @@ const Contact = () => {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Name
+                  {t.contact.form.name}
                 </label>
                 <input
                   type="text"
@@ -96,7 +99,7 @@ const Contact = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Email
+                  {t.contact.form.email}
                 </label>
                 <input
                   type="email"
@@ -113,7 +116,7 @@ const Contact = () => {
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Message
+                  {t.contact.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -129,7 +132,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full bg-soft-black text-white py-3 rounded-md hover:bg-soft-green transition-colors duration-300"
               >
-                Send Message
+                {t.contact.form.submit}
               </button>
             </form>
           </motion.div>
